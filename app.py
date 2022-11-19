@@ -1,6 +1,7 @@
 #import required packages
 from flask import Flask, render_template, request
 from flask.helpers import flash
+
 #import jsonify
 import requests
 import pickle
@@ -14,7 +15,8 @@ app = Flask("health-app")
 
 #load the ml model which we have saved earlier in .pkl format
 
-
+class OutOfBounds(Exception):
+    pass
 
 #define the route(basically url) to which we need to send http request
 #HTTP GET request method
@@ -44,6 +46,7 @@ def cancer_details():
     
 @app.route('/predict_cancer', methods=['GET','POST'])
 def predict_cancer():
+    
     if request.method == 'POST':
      model_cancer = pickle.load(open('breast_cancer.pkl', 'rb'))
      try:
@@ -53,6 +56,12 @@ def predict_cancer():
         smooth = float(request.form['smoothness_mean'])
         compact = float(request.form['compactness_mean'])
         sym = float(request.form['symmetry_mean'])
+
+
+        if tex<9.71 or tex>39.3 or par<43.8 or par>189 or smooth<0.05 or smooth>0.61 or compact<0.02 or compact>0.35 or sym<0.11 or sym>0.3:
+            raise OutOfBounds
+             
+        
         
         prediction = model_cancer.predict([[tex,par,smooth,compact,sym]])
         if prediction == 1:
@@ -64,7 +73,10 @@ def predict_cancer():
         
      except ValueError:
             return render_template('unappropriate.html',prediction_text="Please fill the approriate values!")
-                
+
+
+     except OutOfBounds:
+            return render_template('unappropriate.html',prediction_text="Please fill values in given range")        
 
        
     else:
@@ -89,6 +101,8 @@ def predict_diabetes():
         Age = int(request.form['Age'])
         
         
+        if Pregnancies<0 or Glucose<0 or Glucose>199 or BloodPressure<0 or BloodPressure>122 or SkinThickness<0 or SkinThickness>99 or Insulin<0 or Insulin>846 or BMI<0 or DiabetesPedigreeFunction<0.08 or DiabetesPedigreeFunction>2.42 or Age<0:
+            raise OutOfBounds
 
         
         prediction = model_diabetes.predict([[Pregnancies, Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age]])
@@ -102,7 +116,9 @@ def predict_diabetes():
         
      except ValueError:
             return render_template('unappropriate.html',prediction_text="Please fill the approriate values!")
-                
+
+     except OutOfBounds:
+            return render_template('unappropriate.html',prediction_text="Please fill values in given range")            
 
        
     else:
@@ -125,15 +141,18 @@ def predict_heart():
         cp = float(request.form['cp'])
         trestbps = float(request.form['trestbps'])
         chol  = float(request.form['chol'])
-        fbs = float(request.form['fbs'])
+        fbs = int(request.form['fbs'])
         restecg = float(request.form['restecg'])
         thalach = float(request.form['thalach'])
-        exang = float(request.form['exang'])
+        exang = int(request.form['exang'])
         oldpeak = float(request.form['oldpeak'])
         slope = float(request.form['slope'])
         ca  = float(request.form['ca'])
         thal  =float(request.form['thal'])
         
+        
+        if age<0 or sex<0 or sex>1 or cp<0 or cp>3 or chol<126 or chol>564 or fbs<0 or fbs>1 or restecg<0 or restecg>2 or thalach<71 or thalach>202 or exang<0 or exang>1 or oldpeak<0 or oldpeak>6.2 or slope<0 or slope>2 or ca<0 or ca>3 or thal<0 or thal>3:
+            raise OutOfBounds 
         
         
         prediction = model_heart.predict([[age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal]])
@@ -146,6 +165,9 @@ def predict_heart():
         
      except ValueError:
             return render_template('unappropriate.html',prediction_text="Please fill the approriate values!")
+
+     except OutOfBounds:
+            return render_template('unappropriate.html',prediction_text="Please fill values in given range")  
 
     else:
          return render_template('heart.html')
