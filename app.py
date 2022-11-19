@@ -164,10 +164,10 @@ def predict_heart():
             return render_template('unappropriate.html',prediction_text="You don't have heart-disease!")
         
      except ValueError:
-            return render_template('unappropriate.html',prediction_text="Please fill the approriate values!")
+            return render_template('unappropriate.html',prediction_text="Please fill the approriate values according to the given data type!")
 
      except OutOfBounds:
-            return render_template('unappropriate.html',prediction_text="Please fill values in given range")  
+            return render_template('unappropriate.html',prediction_text="Please fill out the values in the given range")  
 
     else:
          return render_template('heart.html')
