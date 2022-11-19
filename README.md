@@ -12,4 +12,4 @@
   
   ### Deployed Project - 
   
-  The project is deployed on Heroku and can be accessed from here : https://the-check-up.herokuapp.com/
+  The project is deployed on Heroku and can be accessed from here : https://multipdiseaseprediction.herokuapp.com/
