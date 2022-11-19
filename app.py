@@ -72,11 +72,11 @@ def predict_cancer():
             return render_template('unappropriate.html',prediction_text="You are non-cancerous")
         
      except ValueError:
-            return render_template('unappropriate.html',prediction_text="Please fill the approriate values!")
+            return render_template('unappropriate.html',prediction_text="Please fill the approriate values according to the given data type!")
 
 
      except OutOfBounds:
-            return render_template('unappropriate.html',prediction_text="Please fill values in given range")        
+            return render_template('unappropriate.html',prediction_text="Please fill out the values in the given range")        
 
        
     else:
@@ -115,10 +115,10 @@ def predict_diabetes():
             return render_template('unappropriate.html',prediction_text="You don't have diabetes" )
         
      except ValueError:
-            return render_template('unappropriate.html',prediction_text="Please fill the approriate values!")
+            return render_template('unappropriate.html',prediction_text="Please fill the approriate values according to the given data type!")
 
      except OutOfBounds:
-            return render_template('unappropriate.html',prediction_text="Please fill values in given range")            
+            return render_template('unappropriate.html',prediction_text="Please fill out the values in the given range")            
 
        
     else:
@@ -170,7 +170,7 @@ def predict_heart():
             return render_template('unappropriate.html',prediction_text="Please fill out the values in the given range")  
 
     else:
-         return render_template('heart.html')
+         return render_template('heart.html') 
 
 
 # @app.route('/predict_kidney', methods=['GET','POST'])
