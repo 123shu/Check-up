@@ -72,7 +72,7 @@ def predict_cancer():
             return render_template('unappropriate.html',prediction_text="You are non-cancerous")
         
      except ValueError:
-            return render_template('unappropriate.html',prediction_text="Please fill the approriate values according to the given data type!")
+            return render_template('unappropriate.html',prediction_text="Please fill the appropriate values according to given data type!")
 
 
      except OutOfBounds:
@@ -115,7 +115,7 @@ def predict_diabetes():
             return render_template('unappropriate.html',prediction_text="You don't have diabetes" )
         
      except ValueError:
-            return render_template('unappropriate.html',prediction_text="Please fill the approriate values according to the given data type!")
+            return render_template('unappropriate.html',prediction_text="Please fill the appropriate values according to given data type!")
 
      except OutOfBounds:
             return render_template('unappropriate.html',prediction_text="Please fill out the values in the given range")            
@@ -164,7 +164,7 @@ def predict_heart():
             return render_template('unappropriate.html',prediction_text="You don't have heart-disease!")
         
      except ValueError:
-            return render_template('unappropriate.html',prediction_text="Please fill the approriate values according to the given data type!")
+            return render_template('unappropriate.html',prediction_text="Please fill the appropriate values according to given data type!")
 
      except OutOfBounds:
             return render_template('unappropriate.html',prediction_text="Please fill out the values in the given range")  
