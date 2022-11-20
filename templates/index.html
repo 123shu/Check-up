@@ -143,12 +143,15 @@
             <a class="nav-link "  href="#">Home</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="{{url_for('heart_details') }}">Heart Disease</a>
-          </li>
+          
           <li class="nav-item">
             <a class="nav-link" href="{{url_for('cancer_details') }}">Breast Cancer</a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('heart_details') }}">Heart Disease</a>
+          </li>
+
           <li class="nav-item">
             <a class="nav-link" href="{{url_for('diabetes_details') }}">Diabetes</a>
           </li>
@@ -184,8 +187,9 @@
             <h3>This portal provides prediction help for 3 diseases:</h3><br>
             <ul>
               <li>Breast cancer</li>
-              <li>Diabetes</li>
               <li>Heart disease</li>
+              <li>Diabetes</li>
+              
             </ul>
 
           </h5>
@@ -226,59 +230,6 @@
 
 
     <!-- Portfolio Gallery Grid -->
-    <div class="container card-content"
-      style="background: url('../static/img/diabetes.jpg') no-repeat center center fixed; background-attachment: scroll;background-color: #a2c6e6;">
-
-
-      <div class="row">
-
-
-        <div class="col-sm-6" style="margin: 3%;">
-          <h2>Diabetes</h2>
-          <button class="btn card-btn btn-lg btn-dark" style="background-color: rgb(46, 54, 90);"><a
-              href="{{url_for('diabetes_details') }}" style="color: white;text-decoration:none;">Read
-              details</a><span>&rarr;</span></button>
-          <br>
-          <button class="btn card-btn btn-lg btn-dark" style="background-color: rgb(46, 54, 90);"><a
-              href="{{url_for('predict_diabetes') }}" style="color: white;text-decoration:none;">Take test </a>
-            <span>&rarr;</span></button>
-        </div>
-
-
-        <!-- <div class="col-sm-6">
-              <img src="../static/img/d2.jpg" alt="diabetes"  height="350px">
-            </div>
-       -->
-      </div>
-    </div>
-
-    
-    <div class="container card-content"
-      style="background: url('../static/img/heart.png') no-repeat center center fixed; background-attachment: scroll;background-color: #ffffb0;">
-
-
-      <div class="row">
-
-
-        <div class="col-sm-6" style="margin: 3%;">
-          <h2>Heart Disease</h2>
-          <button class="btn card-btn btn-lg btn-dark" style="background-color: rgb(46, 54, 90);"><a
-              href="{{url_for('heart_details') }}" style="color: white;text-decoration:none;">Read
-              details</a><span>&rarr;</span></button>
-          <br>
-          <button class="btn card-btn btn-lg btn-dark" style="background-color: rgb(46, 54, 90);"><a
-              href="{{url_for('predict_heart')}}" style="color: white;text-decoration:none;">Take test </a>
-            <span>&rarr;</span></button>
-        </div>
-
-
-        <!-- <div class="col-sm-6">
-              <img src="../static/img/d2.jpg" alt="diabetes"  height="350px">
-            </div>
-       -->
-      </div>
-    </div>
-
 
     <div class="container card-content"
       style="background: url('../static/img/cancer.jpg') no-repeat center center fixed; background-attachment: scroll;">
@@ -308,8 +259,63 @@
 
 
 
+    <div class="container card-content"
+      style="background: url('../static/img/heart.png') no-repeat center center fixed; background-attachment: scroll;background-color: #ffffb0;">
 
 
+      <div class="row">
+
+
+        <div class="col-sm-6" style="margin: 3%;">
+          <h2>Heart Disease</h2>
+          <button class="btn card-btn btn-lg btn-dark" style="background-color: rgb(46, 54, 90);"><a
+              href="{{url_for('heart_details') }}" style="color: white;text-decoration:none;">Read
+              details</a><span>&rarr;</span></button>
+          <br>
+          <button class="btn card-btn btn-lg btn-dark" style="background-color: rgb(46, 54, 90);"><a
+              href="{{url_for('predict_heart')}}" style="color: white;text-decoration:none;">Take test </a>
+            <span>&rarr;</span></button>
+        </div>
+
+
+        <!-- <div class="col-sm-6">
+              <img src="../static/img/d2.jpg" alt="diabetes"  height="350px">
+            </div>
+       -->
+      </div>
+    </div>
+
+
+
+
+    <div class="container card-content"
+      style="background: url('../static/img/diabetes.jpg') no-repeat center center fixed; background-attachment: scroll;background-color: #a2c6e6;">
+
+
+      <div class="row">
+
+
+        <div class="col-sm-6" style="margin: 3%;">
+          <h2>Diabetes</h2>
+          <button class="btn card-btn btn-lg btn-dark" style="background-color: rgb(46, 54, 90);"><a
+              href="{{url_for('diabetes_details') }}" style="color: white;text-decoration:none;">Read
+              details</a><span>&rarr;</span></button>
+          <br>
+          <button class="btn card-btn btn-lg btn-dark" style="background-color: rgb(46, 54, 90);"><a
+              href="{{url_for('predict_diabetes') }}" style="color: white;text-decoration:none;">Take test </a>
+            <span>&rarr;</span></button>
+        </div>
+
+
+        <!-- <div class="col-sm-6">
+              <img src="../static/img/d2.jpg" alt="diabetes"  height="350px">
+            </div>
+       -->
+      </div>
+    </div>
+
+    
+  
     <!-- END MAIN -->
   </div>
 
