@@ -65,7 +65,8 @@ def predict_cancer():
         
         prediction = model_cancer.predict([[tex,par,smooth,compact,sym]])
         if prediction == 1:
-            return render_template('cancer_output.html',prediction_text="Sorry, you are cancerous!")
+            return render_template('cancer_output.html',prediction_text="Sorry, you are cancerous!", advice ="Do visit a Doctor", Pre="Precautons -", p1="1. Limit alcohol."
+             ,p2="2. Maintain a healthy weight.", p3="3. Be physically active." , p4="4. Breast-feed.", p5="5. Limit postmenopausal hormone therapy. ")
         
         #condition for prediction when values are valid
         if prediction==0:
@@ -108,7 +109,8 @@ def predict_diabetes():
         prediction = model_diabetes.predict([[Pregnancies, Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age]])
         
         if prediction == 1:
-            return render_template('diabetes_output.html',prediction_text="Sorry, you have diabetes!", BMI = BMI, BloodPressure = BloodPressure)
+            return render_template('diabetes_output.html',prediction_text="Sorry, you have diabetes!", BMI = BMI, BloodPressure = BloodPressure ,  advice ="Do visit a Doctor", Pre="Precautons -", p1="1. Keep your blood pressure and cholesterol under control"
+             ,p2="2. Maintain a healthy weight.", p3="3. Be physically active." , p4="4. Eat healthy fats", p5="5. Reduce your alcohol consumption")
         
         #condition for prediction when values are valid
         if prediction==0:
@@ -157,7 +159,8 @@ def predict_heart():
         
         prediction = model_heart.predict([[age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal]])
         if prediction == 1:
-            return render_template('heart_output.html',prediction_text="Sorry, you have heart disease!", BP = trestbps, Chol = chol, sex = sex, age = age, HB = thalach)
+            return render_template('heart_output.html',prediction_text="Sorry, you have heart disease!", BP = trestbps, Chol = chol, sex = sex, age = age, HB = thalach,  advice ="Do visit a Doctor", Pre="Precautons -", p1="1. Eat a healthy, balanced diet"
+             ,p2="2. Maintain a healthy weight.", p3="3. Be physically active." , p4="4. Reduce your alcohol consumption", p5="5. Give up smoking")
         
         #condition for prediction when values are valid
         if prediction==0:

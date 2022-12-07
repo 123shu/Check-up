@@ -41,9 +41,10 @@ body {
 
     background-color: white; 
     text-align: center;
-    position : absolute;
-    top : 30%;
-    left : 37%;
+    
+    align-items: center;
+   
+    margin: auto;
     padding-bottom: 20px;
     padding-top: 30px;
     padding-left : 30px;
@@ -51,7 +52,10 @@ body {
     /* transform : translateX(-10%) translateY(-30%); */
   }
 
-  
+  .pre{
+    text-align: left;
+
+  }
    
 
   
@@ -66,7 +70,20 @@ body {
   <div class = "container">
     
   <h3>{{ prediction_text }}
+
     <!-- {{Age}}{{BMI}} -->
+    <h3>{{advice}}</h3>
+
+    <div class ="pre">
+    <h3>{{Pre}}</h3>
+
+    
+    <h5>{{p1}}</h5>
+    <h5>{{p2}}</h5>
+    <h5>{{p3}}</h5>
+    <h5>{{p4}}</h5>
+    <h5>{{p5}}</h5>
+    </div>
 
   </h3>
   <p id = "m1"></p>
